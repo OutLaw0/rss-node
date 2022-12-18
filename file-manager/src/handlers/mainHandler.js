@@ -2,10 +2,11 @@ import { moveUp } from "../functions/up.js";
 import { changeDir } from "../functions/cd.js";
 import { listFiles } from "../functions/ls.js";
 import { getOsInfo } from "../functions/os.js";
+import { getHash } from "../functions/hash.js";
 
-export const handleCommand = async (data) => {
-  const input = data.split(" ");
-  const [command, ...args] = input;
+export const handleCommand = async (line) => {
+  const lineArr = line.split(" ");
+  const [command, ...args] = lineArr;
 
   switch (command) {
     case "up":

@@ -1,7 +1,6 @@
 import readline from "readline/promises";
 import { EOL } from "os";
-
-import { cwd, stdin, stdout, exit } from "process";
+import { cwd, stdin, stdout, exit, nextTick } from "process";
 import { handleCommand } from "./mainHandler.js";
 
 const rl = readline.createInterface({
@@ -10,20 +9,21 @@ const rl = readline.createInterface({
 });
 
 export const handleInput = (name) => {
-  rl.on("line", async (data) => {
-    data = data.trim();
-    if (data === ".exit") {
+  rl.on("line", async (line) => {
+    line = line.trim();
+    if (line === ".exit") {
       rl.emit("SIGINT");
-    } else {
-      handleCommand(data);
-      console.log(`${EOL}You are currently in ${cwd()}`);
+      return
     }
+    handleCommand(line);
+    console.log(`You are currently in ${cwd()}${EOL}`);
+
   });
   rl.on("SIGINT", () => {
     rl.close();
   });
   rl.on("close", () => {
-    console.log(`Thank you for using File Manager, ${name}, goodbye!`);
-    process.nextTick(() => exit());
+    console.log(`${EOL}Thank you for using File Manager, ${name}, goodbye!`);
+    nextTick(() => exit());
   })
 }
