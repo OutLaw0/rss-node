@@ -19,7 +19,9 @@ export const decompress = async (sourceFile, destPath) => {
       console.error("Operation failed");
       process.exitCode = 1;
     }
-    console.log('Decompress successful');
+    else {
+      console.log('Decompress successful');
+    }
   });
 
 };

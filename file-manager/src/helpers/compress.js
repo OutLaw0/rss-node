@@ -21,7 +21,9 @@ export const compress = async (sourceFile, destPath) => {
       console.error("Operation failed");
       process.exitCode = 1;
     }
-    console.log('Compress successful'); 
+    else {
+      console.log('Compress successful');
+    }
   });
 
 };

@@ -15,9 +15,7 @@ export const handleInput = (name) => {
       rl.emit("SIGINT");
       return
     }
-    handleCommand(line);
-    console.log(`You are currently in ${cwd()}${EOL}`);
-
+    await handleCommand(line);
   });
   rl.on("SIGINT", () => {
     rl.close();
