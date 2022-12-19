@@ -1,0 +1,24 @@
+{
+  "name": "node-file-manager",
+  "version": "1.0.0",
+  "description": "File Manager using Node.js APIs",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src",
+    "test": "echo \"Test: hello im here\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OutLaw0/rss-node.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "OutLaw0",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OutLaw0/rss-node.git/issues"
+  },
+  "homepage": "https://github.com/OutLaw0/rss-node.git#readme"
+}
